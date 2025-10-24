@@ -40,8 +40,19 @@ export default function GroceriesAppContainer({ products }) {
 
   // removes a single item from the cart
   function handleRemoveFromCart(id) {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
-  }
+  setCart((prevCart) => {
+
+    const newCart = [];
+    
+    for (const item of prevCart) {
+      
+      if (item.id !== id) {
+        newCart.push(item);
+      }
+    }
+    return newCart;
+  });
+}
 
   // clearsr the entire shopping cart
   function handleEmptyCart() {
