@@ -12,9 +12,10 @@ export default function NavBar({ cartCount }) {
       <div className="NavDiv NavUser">Hello, Username</div>
       
       <div className="NavDiv NavTitle">
-        <h2>🍎 Groceries App</h2> 
+        <h2>🍎 Groceries App 🍎</h2>  {/* added apple on both sides if that okay :) */}
       </div>
 
+{/* displays the cart image (full or empty) based on cartCount */}
       <div className="NavDiv NavCart">
         <img 
           src={cartIconPath} 

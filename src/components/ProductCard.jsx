@@ -4,7 +4,9 @@ import QuantityCounter from './QuantityCounter';
 export default function ProductCard({ product, onAddToCart }) {
   const [selectedQuantity, setSelectedQuantity] = useState(0);
 
+  
   function handleAdd() {
+    // makes sure the user enters a quantity greater than 0
     if (selectedQuantity <= 0) {
       alert("Enter quantity before adding to cart");
       return;
@@ -12,7 +14,7 @@ export default function ProductCard({ product, onAddToCart }) {
     
     onAddToCart(product, selectedQuantity);
     
-    // resets the counter to 0 after adding the item
+    // resets the counter to 0 after adding the item :D
     setSelectedQuantity(0);
   }
 

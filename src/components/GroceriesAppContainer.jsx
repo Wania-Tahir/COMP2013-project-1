@@ -9,7 +9,7 @@ function parsePrice(priceString) {
 }
 
 export default function GroceriesAppContainer({ products }) {
-  // holds all the items that are currently in shopping cart
+  // holds all the items that are currently in shopping cart 
     const [cart, setCart] = useState([]);
 
     // addds items from the productCard to the cart
@@ -18,6 +18,7 @@ export default function GroceriesAppContainer({ products }) {
       const existingItemIndex = prevCart.findIndex((item) => item.id === product.id);
 
       if (existingItemIndex > -1) {
+        // if the item is already there js update the quantity 
         const newCart = [...prevCart];
         newCart[existingItemIndex] = {
           ...newCart[existingItemIndex],
@@ -25,6 +26,7 @@ export default function GroceriesAppContainer({ products }) {
         };
         return newCart;
       } else {
+        // if new item, add it tocart
         return [...prevCart, { ...product, quantity: quantityToAdd }];
       }
     });
@@ -32,7 +34,7 @@ export default function GroceriesAppContainer({ products }) {
 
   function handleUpdateQuantity(id, newQuantity) {
     setCart((prevCart) => {
-      return prevCart.map((item) =>
+      return prevCart.map((item) => //map was a lil confusing but i got in thr end :D
         item.id === id ? { ...item, quantity: newQuantity } : item
       );
     });
